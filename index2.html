@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+     crossorigin="anonymous">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <style>
+       
+@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&display=Swap');
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Bree+Serif&family=David+Libre:wght@500&family=Poppins:ital,wght@0,100;0,800;1,700&family=Secular+One&display=swap'););
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'PT Sans Narrow',sans-serif;
+    overflow-x: hidden;
+}
+
+
+
+.open {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.open .layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: top;
+    animation: open 1s ease-in-out forwards;
+}
+
+.open .layer:nth-child(1) {
+    background: #000;
+    z-index: 2;
+}
+
+.open .layer:nth-child(2) {
+    background: #03a9f4;
+    animation-delay: 1s;
+    z-index: 1;
+}
+
+@keyframes open {
+    0% {
+        transform: scaleY(1);
+    }
+
+    100% {
+        transform: scaleY(0);
+    }
+}
+
+#section {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+   overflow: hidden;
+   
+}
+
+.bannertext {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    max-width: 700px;
+}
+
+.bannertext h2 ,.logo{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    transform-origin: left;
+    text-transform: uppercase;
+    transform: scaleX(0);
+    animation: revealTextReverse 1s ease-in-out forwards;
+    font-family: 'PT Sans Narrow',sans-serif;
+    font-weight: 800;
+
+   
+
+}
+
+
+.bannertext h3 {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    transform-origin: left;
+    text-transform: uppercase;
+    transform: scaleX(0);
+    animation: revealTextReverse 1s ease-in-out forwards;
+    font-family: sans-serif;
+    font-weight: 700;
+
+}
+.bannertext h3 span{
+    color: #ec2672;
+    font-weight: 600;
+}
+
+.bannertext h2 {
+    font-size: 6em;
+   letter-spacing: 6px;
+    animation-delay: 2s;
+}
+
+.bannertext h3 {
+    font-size: 2.5em;
+    font-weight: 700;
+    animation-delay: 3s;
+
+   
+}
+
+.bannertext h2:before,.logo:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #000;
+    width: 100%;
+    height: 100%;
+    transform-origin: right;
+    animation: revealText 1s ease-in-out forwards;
+    animation-delay: 3s;
+}
+.bannertext h3:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #000;
+    width: 100%;
+    height: 100%;
+    transform-origin: right;
+    animation: revealText 1s ease-in-out forwards;
+    animation-delay: 3s;
+}
+
+.bannertext h3:before {
+    animation-delay: 4s;
+}
+
+@keyframes revealText {
+    0% {
+        transform: scaleX(1);
+    }
+    100%{
+        transform:scaleX(0)
+    }
+}
+@keyframes revealTextReverse{
+    0% {
+        transform: scaleX(0);
+    }
+    100%{
+        transform:scaleX(1)
+    }
+}
+.bannertext p{
+    opacity: 0;
+    font-weight: 400;
+    font-size: 1.2em;
+    animation: fadeIn 1s linear forwards;
+   font-family: sans-serif;
+    animation-delay: 5s;
+}
+@keyframes fadeIn{
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+    }
+}
+.bannertext .read-more{
+    opacity: 0;
+    display: inline-block;
+    margin: 20px 0 0;
+    padding: 10px 20px ;
+    background: linear-gradient(90deg,rgb(151, 56, 240),rgb(241, 48, 183));
+    color: #fff;
+    border-radius: 40px;
+    font-weight: 700;
+    font-family: 'Bree serif',serif;
+    text-decoration: none;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    animation: fadeInBottom 0.5s linear forwards;
+    animation-delay: 5.5s;
+}
+@keyframes fadeInBottom{
+    0%{
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+.bulb{
+    height: 407px;
+    width: 368px;
+    opacity: 0;
+    position: absolute;
+    right: 10%;
+    margin-right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation:fadeIn 1s linear forwards ;
+    animation-delay: 6s;
+}
+.header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    padding: 0 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    z-index: 10000;
+    
+}
+.header .logo{
+    margin: 0;
+    padding: 0;
+    font-size: 2em;
+    text-transform: uppercase;
+    animation-delay: 2s;
+}
+.header ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.header ul li {
+    opacity: 0;
+    list-style: none;
+    margin: 0 10px;
+    animation: fadeInRight 0.5s linear forwards;
+}
+.header ul li:nth-child(1){
+    animation-delay: 5s;
+}
+.header ul li:nth-child(2){
+    animation-delay: 5.25s;
+}
+.header ul li:nth-child(3){
+    animation-delay: 5.5s;
+}
+.header ul li:nth-child(4){
+    animation-delay: 5.75s;
+}
+.header ul li:last-child{
+    margin-right: 0;
+}
+.header ul li a {
+    text-decoration: none;
+    font-size: 1.2em;
+    color:#000;
+    padding: 5px 10px ;
+    margin: 0;
+    font-family: 'Bree serif',serif;
+    letter-spacing: 2px;
+    background: #fff;
+}
+.header ul li a.active{
+    background: linear-gradient(90deg,rgb(151, 56, 240),rgb(241, 48, 183));
+
+    color: #ffffff;
+    border-radius: 40px;
+
+}
+.header ul li a:hover{
+    background: linear-gradient(90deg,rgb(151, 56, 240),rgb(241, 48, 183));
+
+    border-radius: 40px;
+    color:  #ffffff;
+}
+@keyframes fadeInRight{
+    0%{
+        transform: translateY(150px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+.sci{
+    position: absolute;
+    bottom: 15px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.sci li {
+    opacity: 0;
+    margin:  5px 0;
+    text-align: center;
+    list-style: none;
+    animation: fadeInBottom 0.5s linear forwards;
+    animation-delay: 5s;
+}
+.sci li a {
+    color: #000;
+    font-size: 1.2em;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 20px;
+    padding-left: 20px;
+
+}
+.element1{
+    opacity: 0;
+    position: absolute;
+    bottom: -150px;
+    right: 40%;
+    width: 250px;
+    height: 250px;
+    border: 40px solid #000;
+    animation:rotate 40s linear infinite ,fadeIn 1s linear forwards;
+    animation-delay: 7s;
+}
+.element2{
+    opacity: 0;
+    position: absolute;
+    left: -10px;
+    top: 40%;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #000;
+    animation:rotate 30s linear infinite ,fadeIn 1s linear forwards;
+    animation-delay: 7s;
+}
+
+@keyframes rotate{
+    
+        0%{
+            transform: rotate(45deg);
+        }
+        0%{
+            transform: rotate(405deg);
+        }
+    
+}
+.sci a:hover {
+    border-right: 4px solid ;
+    border-left: 4px solid #03a9f4;
+   
+}
+.fa-times.x2,
+.fa-bars.x2{
+    font-size: 28px;
+    cursor: pointer;
+    display: none;
+}
+@media(max-width: 1280px){
+    section{
+        height: auto !important;
+        display: initial;
+        padding: 100px;
+        box-sizing: border-box;
+    }
+    .bannertext{
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-top: 100px;
+        transform: translateY(0);
+        max-width: 700px;
+        z-index: 1001;
+    }
+    .sci{
+        z-index:1002;
+        right: 20px;
+    }
+    }
+    @media (max-width: 991px){
+        .bannertext h2{
+            font-size: 3em;
+            animation-delay: 2s;
+        }
+        .bannertext h3{
+            font-size: 1.5em;
+        }
+        .element1{
+            display: none;
+        }
+        .header ul{
+            position: fixed;
+            background: #fff;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: none;
+            z-index: 1010;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow-y: scroll;
+           
+        }
+        .header ul.show{
+            display: flex;
+        }
+        .header ul li 
+        {
+            margin: 10px 0;
+           
+        }
+        .header ul li:nth-child(1),
+        .header ul li:nth-child(2),
+        .header ul li:nth-child(3),
+        .header ul li:nth-child(4)
+
+        {
+            animation-delay: 0s !important;
+        }
+        .fa-bars.x2{
+            display: block;
+        }
+        .fa-times.x2{
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            display: block;
+        }
+        
+    }
+    @media (max-width: 991px){
+        section{
+            padding: 50px 80px 50px 50px;
+        }
+        .header{
+        padding: 0 50px;
+       }
+       
+.bannertext p{
+    opacity: 0;
+    font-weight: 400;
+    font-size: 1.2em;
+    animation: 
+    FadeIn 1s linear forwards;
+   font-family: sans-serif;
+    animation-delay: 5s;
+}
+@keyframes FadeIn{
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+    }
+}
+.bannertext h3 span{
+    color: rgb(253, 255, 140);
+    font-weight: 800;
+}
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   </style>
+    <title>VFX NINJA - Complete Business Solution</title>
+</head>
+
+<body>
+  
+<div class="preloader"></div>
+    </div>
+    <div class="open">
+        <div class="layer"></div>
+        <div class="layer"></div>
+    </div>
+    <section id="section">
+        <div class="header">
+            <h2 class="logo">VFX NINJA</h2>
+            <i class="fa fa-bars x2"onclick="menuToggle()"></i>
+            <ul id="navigation">
+                <li>
+                    <a href="#" class="active">Home</a>
+                </li>
+                <li>
+                    <a href="#">Services</a>
+                </li>
+                <li>
+                    <a href="#">About Us</a>
+                </li>
+                <li>
+                    <a href="#">Contact Us</a>
+                </li>
+            <i class="fa fa-times x2"onclick="menuToggle()"></i>
+
+            </ul>
+        </div>
+        <div class="bannertext">
+            <h2 style="color: #03a9f4; text-shadow: 2px 4px 4px black;">VFX NINJA </h2><br>
+            <h3>THINK <span>CREATIVE</span> BE <span>INNOVATIVE</span>.</h3>
+            <p>It’s not a matter of predicting where marketing is heading. We’re living it, right here, right now. Traditional marketing is failing to reach audiences like it used to. Therefore we vfx Ninjas are emerging as a business solution for companies and start-ups to grow more that it ever.
+                Each and every business services are served.We hold our clients hand at every Step.So, let's take your business high together.Know more about us...
+            </p>
+                <a class="read-more" href="#">Read More</a>
+        </div>
+        <img src="bulb.png" class="bulb" alt="businessman">
+        <ul class="sci">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+        </ul>
+        <div class="element1"></div>
+        <div class="element2"></div>
+    </section>
+   <script>
+       function menuToggle(){
+           let element =document.getElementById('navigation');
+           element.classList.toggle("show");
+       }
+    
+           
+   </script>
+   <script>
+       $(".fa-bars").click(function(){
+           $('.bannertext').hide();
+       });
+       $(".fa-bars").click(function(){
+           $('.sci').hide();
+       });
+       $(".fa-times").click(function(){
+           $('.bannertext').show();
+       });
+       $(".fa-times").click(function(){
+           $('.sci').show();
+       });
+
+
+   </script>
+</body>
+
+</html>
